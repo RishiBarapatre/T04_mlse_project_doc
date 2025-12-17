@@ -30,15 +30,23 @@ A local, multimodal Retrieval-Augmented Generation (RAG) system that functions a
 
 How It Works
 
-   1. Indexing: The system reads the pokemon.csv and matches rows to images in the images/ folder. It uses OpenCLIP to convert every image into a mathematical vector (embedding) and stores it in ChromaDB.
+    Indexing (The Setup)
 
-   2. Retrieval:
+        The system reads pokemon.csv and matches every row to its corresponding image in the images/ folder.
 
-      Text Query: The user's text is converted to a vector. ChromaDB finds the images with the closest vector distance (cosine similarity).
+        It uses OpenCLIP to convert every image into a high-dimensional mathematical vector (embedding).
 
-      Image Query: The uploaded image's pixels are converted to a vector. ChromaDB finds the exact visual match in the database.
+        These vectors are stored in ChromaDB, creating a searchable visual database.
 
-   3. Generation: For image queries, the Moondream model analyzes the visual features to provide a human-readable description.
+    Retrieval (The Search)
+
+        Text Query: When you type "Fire Dragon," your text is converted into a vector. ChromaDB calculates the cosine similarity to find images that mathematically "look" like your description.
+
+        Image Query: When you upload an image, its pixel data is converted into a vector. ChromaDB scans the database to find the exact visual match (identifying the Pokémon instantly).
+
+    Generation (The Vision)
+
+        Once a Pokémon is identified via image upload, the Moondream vision model (running locally via Ollama) analyzes the visual features to generate a human-readable description of the specific image you uploaded (e.g., "Pikachu is jumping").
 
 
 ## 📂 Project Structure
