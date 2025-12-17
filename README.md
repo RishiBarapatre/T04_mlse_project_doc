@@ -2,7 +2,7 @@
 
 A local, multimodal Retrieval-Augmented Generation (RAG) system that functions as an intelligent Pokedex. This project allows users to search for Pokémon using natural language descriptions (Text-to-Image) and identify Pokémon by uploading images (Image-to-Text), utilizing a hybrid database of images and stats.
 
-## 🚀 Features
+## Features
 
 * **Text-to-Image Search (Semantic Retrieval):**
     * Search for Pokémon using abstract descriptions (e.g., "A fire dragon," "Pink balloon").
@@ -36,7 +36,7 @@ Pokedex_Project/
 ├── pokemon.csv           # Dataset containing stats (Name, Type1, Type2, Evolution)
 ├── pokedex.py            # Main application script
 └── README.md             # This file
-
+```
 
 How It Works
 
