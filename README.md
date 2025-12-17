@@ -28,6 +28,19 @@ A local, multimodal Retrieval-Augmented Generation (RAG) system that functions a
 * **Vision Model:** Moondream (via [Ollama](https://ollama.com/))
 * **Data Handling:** Pandas (CSV processing), Pillow (Image processing), Numpy
 
+How It Works
+
+   1. Indexing: The system reads the pokemon.csv and matches rows to images in the images/ folder. It uses OpenCLIP to convert every image into a mathematical vector (embedding) and stores it in ChromaDB.
+
+   2. Retrieval:
+
+      Text Query: The user's text is converted to a vector. ChromaDB finds the images with the closest vector distance (cosine similarity).
+
+      Image Query: The uploaded image's pixels are converted to a vector. ChromaDB finds the exact visual match in the database.
+
+   3. Generation: For image queries, the Moondream model analyzes the visual features to provide a human-readable description.
+
+
 ## 📂 Project Structure
 
 ```text
@@ -36,16 +49,4 @@ Pokedex_Project/
 ├── pokemon.csv           # Dataset containing stats (Name, Type1, Type2, Evolution)
 ├── pokedex.py            # Main application script
 └── README.md             # This file
-```
 
-How It Works
-
-    Indexing: The system reads the pokemon.csv and matches rows to images in the images/ folder. It uses OpenCLIP to convert every image into a mathematical vector (embedding) and stores it in ChromaDB.
-
-    Retrieval:
-
-        Text Query: The user's text is converted to a vector. ChromaDB finds the images with the closest vector distance (cosine similarity).
-
-        Image Query: The uploaded image's pixels are converted to a vector. ChromaDB finds the exact visual match in the database.
-
-    Generation: For image queries, the Moondream model analyzes the visual features to provide a human-readable description.
