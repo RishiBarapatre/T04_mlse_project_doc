@@ -153,3 +153,5 @@ while True:
     if choice == '1': text_to_image()
     elif choice == '2': image_to_text()
     elif choice == 'q': break
+
+print("hehe")
